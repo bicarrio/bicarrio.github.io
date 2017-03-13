@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>ESTOCASTICO</title>
+    <title>Bienvenidos - ESTOCASTICO</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,16 @@
 
 
 
-<link rel="canonical" href="">
-        <meta name="author" content="Benjamín Carrión" />
+<link rel="canonical" href="/">
 
-    <!-- Open Graph tags -->
-        <meta property="og:site_name" content="ESTOCASTICO" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="ESTOCASTICO"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="ESTOCASTICO"/>
+        <meta name="author" content="Benjamín Carrión" />
+        <meta name="description" content="Esta es la página de inicio de estocastico.cl Por el momento no tenemos mucho que mostrar, pero te invitamos a explorar nuestro sitio. Trateremos de actualizar regularmente nuestro blog y nuestra sección noticias. Este sitio web ha sido escrito y compilado completamente en python. El contenido es escrito usando …" />
+
+    <meta property="og:site_name" content="ESTOCASTICO" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Bienvenidos"/>
+    <meta property="og:url" content="/"/>
+    <meta property="og:description" content="Esta es la página de inicio de estocastico.cl Por el momento no tenemos mucho que mostrar, pero te invitamos a explorar nuestro sitio. Trateremos de actualizar regularmente nuestro blog y nuestra sección noticias. Este sitio web ha sido escrito y compilado completamente en python. El contenido es escrito usando …" />
 
 
     <!-- Bootstrap -->
@@ -26,6 +27,7 @@
 
     <link href="/theme/css/pygments/solarizedlight.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/theme/css/shariff/shariff.min.css" rel="stylesheet">
 
 
 
@@ -48,17 +50,18 @@ ESTOCASTICO            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="/pages/que-hacemos.html">
-                             Que hacemos
-                          </a></li>
-                         <li><a href="/pages/quienes-somos.html">
-                             Quienes somos
-                          </a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/servicios">Servicios</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
                         <li >
-                            <a href="/category/misc.html">Misc</a>
+                            <a href="/category/blog.html">Blog</a>
+                        </li>
+                        <li >
+                            <a href="/category/noticias.html">Noticias</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -69,43 +72,16 @@ ESTOCASTICO            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2><a href="/chile-a-rusia.html">Chile a Rusia 2018?</a></h2>
-                <div class="summary">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Clasificatorias-Rusia-2018">Clasificatorias Rusia 2018<a class="anchor-link" href="#Clasificatorias-Rusia-2018">&#182;</a></h1><ul>
-<li><p>Chile clasificará?</p>
-</li>
-<li><p>Cuál es la probabilidad de llegar al próximo mundial?</p>
-</li>
-<li><p>Cómo se podría estimar esa probabilidad?</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Primero se importan los módulos necesarios para el cálculo, manejo de datos, y visualización</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                    <a class="btn btn-default btn-xs" href="/chile-a-rusia.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-
+    <section id="content" class="body">
+        <h1 class="entry-title">Bienvenidos</h1>
+        
+        <div class="entry-content">
+            <p>Esta es la página de inicio de <code>estocastico.cl</code></p>
+<p>Por el momento no tenemos mucho que mostrar, pero te invitamos a explorar nuestro sitio.
+Trateremos de actualizar regularmente nuestro <a href="category/blog.html">blog</a> y nuestra sección <a href="category/noticias.html">noticias</a>.</p>
+<p>Este sitio web ha sido escrito y compilado completamente en <a href="https://www.python.org/">python</a>. El contenido es escrito usando <a href="http://jupyter.org/">Jupyter Notebooks</a>, los que son transformados a <code>html</code> y compagindos como un sitio estático con <a href="http://docs.getpelican.com/">Pelican</a>. El sitio se almacena en <a href="https://github.com/">Github</a>, con servicio de DNS de <a href="https://www.cloudflare.com/">CloudFlare</a></p>
+        </div>
+    </section>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -123,25 +99,6 @@ ESTOCASTICO            </a>
 
 
 
-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-      <ul class="list-group" id="links">
-        <li class="list-group-item">
-            <a href="http://getpelican.com/" target="_blank">
-                Pelican
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="http://python.org/" target="_blank">
-                Python.org
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="http://jinja.pocoo.org/" target="_blank">
-                Jinja2
-            </a>
-        </li>
-      </ul>
-    </li>
     </ul>
 </section>            </aside>
         </div>
@@ -151,7 +108,7 @@ ESTOCASTICO            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2017 Benjamín Carrión
+         <div class="col-xs-10">&copy; 2012 Benjamín Carrión
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
