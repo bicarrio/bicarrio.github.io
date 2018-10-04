@@ -263,6 +263,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -283,11 +284,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1025,8 +1021,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1037,9 +1035,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1078,8 +1078,7 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1098,20 +1097,22 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Ejemplo:-cumpleaños-compartido">Ejemplo: cumplea&#241;os compartido<a class="anchor-link" href="#Ejemplo:-cumpleaños-compartido">&#182;</a></h2><h3 id="Enfoque-probabilístico">Enfoque probabil&#237;stico<a class="anchor-link" href="#Enfoque-probabilístico">&#182;</a></h3><p>El problema se trata de <strong>determinar la probabilidad que, al menos, 2 personas dentro de un mismo grupo estén de cumpleaños un mismo día</strong>. Piensa en un curso de unos 30 alumnos, qué tan probable es que 2 o más personas estén de cumpleaños el mismo día? Llamemos a esta probabilidad $P$.</p>
 <p>Uno tiende a pensar que la probabilidad es baja, sobretodo para grupos relativamente chicos. De todos modos hay 365 días en el año, así que para los cumpleaños se empiecen a repetir habría que armar grupos de al menos ~350 personas, cierto? Bueno, la verdad es que las personas somos muy malas estimando probabilidades, así que no, no es cierto. Para que haya una probabilidad alta de cumpleaños repetido no se necesitan grupos tan grandes. Tratemos de calcular $P$.</p>
 <p>El único supuesto fuerte que haremos es asumir que <strong>las fechas de cumpleaños se reparten homogéneamente durante el año</strong>, es decir que cualquier fecha tiene la misma probabilidad de ser el cumpleaños de alguien. Además, las fechas de cumpleaños son independientes entre personas. A esta probabilidad la llamaremos $p$. Más formalmente:</p>
-$$ P(cumple = fecha) = p \\
-p = 1/356 $$<p><em>NOTA: sabemos que esto no es así en la realidad. La mayoría de los mamíferos (y otros animales) tienen a sus crias preferentemente en privamera para maximizar su probabilidad de supervivencia. Los humanos no son la excepción. Piensen en sus amigos y cuántos de ellos están de cumpleaños entre ~agosto y ~noviembre.</em></p>
+<p>$$ P(cumple = fecha) = p \\
+p = 1/356 $$</p>
+<p><em>NOTA: sabemos que esto no es así en la realidad. La mayoría de los mamíferos (y otros animales) tienen a sus crias preferentemente en privamera para maximizar su probabilidad de supervivencia. Los humanos no son la excepción. Piensen en sus amigos y cuántos de ellos están de cumpleaños entre ~agosto y ~noviembre.</em></p>
 <p>Como nos interesa estimar la probabilidad que <strong>al menos</strong> 2 personas tengan el mismo cumpleaños, debe ser más fácil calcular la probabilidad que nadie comparta cumpleaños. Llamemos $Q$ a esta probabilidad. Claramente $P = 1- Q$.</p>
 <p>Un grupo con $N$ miembros tendrá $N_{parejas}$ parejas.</p>
-$$ N_{parejas} = \frac{N\cdot(N-1)}{2} $$<p>La probabilidad que una pareja no comparta cumpleaños es:</p>
-$$ q = 364/365 $$<p>Entonces la probabilidad que buscamos es:
+<p>$$ N_{parejas} = \frac{N\cdot(N-1)}{2} $$</p>
+<p>La probabilidad que una pareja no comparta cumpleaños es:</p>
+<p>$$ q = 364/365 $$</p>
+<p>Entonces la probabilidad que buscamos es:
 $$  Q = q^{N_{parejas}} \\
     Q = q^{N(N-1)/2} \\
     P = 1 - Q \\
@@ -1166,7 +1167,11 @@ $$  Q = q^{N_{parejas}} \\
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -1526,8 +1531,7 @@ gOkrAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1537,8 +1541,7 @@ gOkrAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1607,7 +1610,11 @@ gOkrAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2188,8 +2195,7 @@ kiSpZYZuSZIkqWWGbkmSJKllhm5JkiSpZYZuSZIkqWW/AN9L6nn141BmAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2229,7 +2235,11 @@ kiSpZYZuSZIkqWWGbkmSJKllhm5JkiSpZYZuSZIkqWW/AN9L6nn141BmAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -2785,6 +2795,9 @@ EREREaljSrpFREREROrY/wPt9LvCp1tmlAAAAABJRU5ErkJggg==
 </div>
 
 </div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
